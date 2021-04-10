@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -14,7 +16,7 @@ namespace WebAPI.Controllers
         //Loosely coupled
         //naming convention
         //IoC Container -- Inversion of Control
-        IHouseService _productService;
+        IHouseService _houseService;
 
         public HousesController(IHouseService houseService)
         {
@@ -35,7 +37,6 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
 
         [HttpGet("getbyid")]
@@ -63,7 +64,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("gethousedetails")]
-        public IActionResult GetProductDetails(string HouseType)
+        public IActionResult GetHouseDetails(string HouseType)
         {
             var result = _houseService.GetHouseDetails();
             if (result.Success)

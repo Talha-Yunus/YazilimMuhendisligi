@@ -75,6 +75,39 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Core/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
+      "DataAccess/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccess.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
       }
     }
   },
@@ -185,10 +218,28 @@
         "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../DataAccess/DataAccess.csproj",
+      "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Core >= 1.0.0",
+      "DataAccess >= 1.0.0",
+      "Entities >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -198,11 +249,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\merve\\Source\\Repos\\YazilimMuhendisligiApi\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Users\\merve\\Source\\Repos\\YazilimMuhendisligiApi\\WebAPI\\WebAPI.csproj",
+      "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\merve\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\merve\\Source\\Repos\\YazilimMuhendisligiApi\\WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\merve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -218,7 +269,17 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj"
+            },
+            "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj"
+            },
+            "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

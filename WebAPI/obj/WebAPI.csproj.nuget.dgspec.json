@@ -4,6 +4,54 @@
     "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
+    "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj",
+        "projectName": "DataAccess",
+        "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +75,17 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Core\\Core.csproj"
+              },
+              "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\merve\\source\\repos\\YazilimMuhendisligiApi\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
