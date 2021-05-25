@@ -11,39 +11,33 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]//Attribute- class ile ilgili bilgi verme
-    public class HousesController : ControllerBase
+    [ApiController]
+    public class HouseOfRentController : ControllerBase
     {
-        //Loosely coupled
-        //naming convention
-        //IoC Container -- Inversion of Control
-        IHouseService _houseService;
+        IHouseOfRentService _houseOfRentService;
 
-        public HousesController(IHouseService houseService)
+        public HouseOfRentController(IHouseOfRentService houseOfRentService)
         {
-            _houseService = houseService;
+            _houseOfRentService = houseOfRentService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-           
-
             Thread.Sleep(1000);
 
-            var result = _houseService.GetAll();
+            var result = _houseOfRentService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
 
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _houseService.GetById(id);
+            var result = _houseOfRentService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -55,7 +49,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbytype")]
         public IActionResult GetByHouseType(string HouseType)
         {
-            var result = _houseService.GetAllByHouseType(HouseType);
+            var result = _houseOfRentService.GetAllByHouseType(HouseType);
             if (result.Success)
             {
                 return Ok(result);
@@ -67,7 +61,7 @@ namespace WebAPI.Controllers
         [HttpGet("gethousedetails")]
         public IActionResult GetHouseDetails(string HouseType)
         {
-            var result = _houseService.GetHouseDetails();
+            var result = _houseOfRentService.GetRentDetails();
             if (result.Success)
             {
                 return Ok(result);
@@ -77,15 +71,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(House house)
+        public IActionResult Add(HouseOfRent houseOfRent)
         {
-            var result = _houseService.Add(house);
+            var result = _houseOfRentService.Add(houseOfRent);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
     }
 }

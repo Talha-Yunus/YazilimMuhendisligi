@@ -11,39 +11,33 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]//Attribute- class ile ilgili bilgi verme
-    public class HousesController : ControllerBase
+    [ApiController]
+    public class HostController : ControllerBase
     {
-        //Loosely coupled
-        //naming convention
-        //IoC Container -- Inversion of Control
-        IHouseService _houseService;
+        IHostService _hostService;
 
-        public HousesController(IHouseService houseService)
+        public HostController(IHostService hostService)
         {
-            _houseService = houseService;
+            _hostService = hostService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-           
-
             Thread.Sleep(1000);
 
-            var result = _houseService.GetAll();
+            var result = _hostService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
 
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _houseService.GetById(id);
+            var result = _hostService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -52,22 +46,12 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbytype")]
-        public IActionResult GetByHouseType(string HouseType)
-        {
-            var result = _houseService.GetAllByHouseType(HouseType);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
 
-            return BadRequest(result);
-        }
 
-        [HttpGet("gethousedetails")]
-        public IActionResult GetHouseDetails(string HouseType)
+        [HttpGet("gethostdetails")]
+        public IActionResult GetHostDetails(string HostType)
         {
-            var result = _houseService.GetHouseDetails();
+            var result = _hostService.GetHostDetails();
             if (result.Success)
             {
                 return Ok(result);
@@ -77,15 +61,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(House house)
+        public IActionResult Add(Host host)
         {
-            var result = _houseService.Add(house);
+            var result = _hostService.Add(host);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
     }
 }
