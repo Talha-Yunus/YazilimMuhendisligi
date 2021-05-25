@@ -1,0 +1,2 @@
+C:\Users\merve\source\repos\YazilimMuhendisligi\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\merve\source\repos\YazilimMuhendisligi\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
