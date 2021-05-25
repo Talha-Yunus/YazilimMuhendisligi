@@ -41,13 +41,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAuthService.cs" />
+    <Compile Include="Abstract\IDistrictService.cs" />
+    <Compile Include="Abstract\IHostService.cs" />
+    <Compile Include="Abstract\IHouseOfRentService.cs" />
+    <Compile Include="Abstract\IHouseOfSaleService.cs" />
+    <Compile Include="Abstract\IHouseService.cs" />
+    <Compile Include="Abstract\IProvinceService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrete\AuthManager.cs" />
+    <Compile Include="Concrete\DistrictManager.cs" />
+    <Compile Include="Concrete\HostManager.cs" />
+    <Compile Include="Concrete\HouseManager.cs" />
+    <Compile Include="Concrete\HouseOfRentManager.cs" />
+    <Compile Include="Concrete\HouseOfSaleManager.cs" />
+    <Compile Include="Concrete\ProvinceManager.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
+    <Compile Include="Constants\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <Folder Include="BusinessAspects\Autofac\" />
+    <Folder Include="CSS\" />
+    <Folder Include="DependencyResolvers\Autofac\" />
+    <Folder Include="ValidationRules\FluentValidation\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{EF2216CC-3AC0-42A4-913D-06C814585543}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{4e3a61dc-c81e-49e6-98f0-a371ae23cc70}</Project>
       <Name>DataAccess</Name>
@@ -56,6 +79,9 @@
       <Project>{95509fcd-51f4-47ff-843a-f05965bdee22}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
