@@ -11,27 +11,23 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]//Attribute- class ile ilgili bilgi verme
-    public class HousesController : ControllerBase
+    [ApiController]
+    public class HouseOfSaleController : ControllerBase
     {
-        //Loosely coupled
-        //naming convention
-        //IoC Container -- Inversion of Control
-        IHouseService _houseService;
+        IHouseOfSaleService _houseOfSaleService;
 
-        public HousesController(IHouseService houseService)
+        public HouseOfSaleController(IHouseOfSaleService houseOfSaleService)
         {
-            _houseService = houseService;
+            _houseOfSaleService = houseOfSaleService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-           
 
             Thread.Sleep(1000);
 
-            var result = _houseService.GetAll();
+            var result = _houseOfSaleService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -43,7 +39,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _houseService.GetById(id);
+            var result = _houseOfSaleService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -55,7 +51,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbytype")]
         public IActionResult GetByHouseType(string HouseType)
         {
-            var result = _houseService.GetAllByHouseType(HouseType);
+            var result = _houseOfSaleService.GetAllByHouseType(HouseType);
             if (result.Success)
             {
                 return Ok(result);
@@ -64,10 +60,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("gethousedetails")]
-        public IActionResult GetHouseDetails(string HouseType)
+        [HttpGet("getsaledetails")]
+        public IActionResult GetSaleDetails(string HouseType)
         {
-            var result = _houseService.GetHouseDetails();
+            var result = _houseOfSaleService.GetSaleDetails();
             if (result.Success)
             {
                 return Ok(result);
@@ -77,15 +73,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(House house)
+        public IActionResult Add(HouseOfSale houseOfSale)
         {
-            var result = _houseService.Add(house);
+            var result = _houseOfSaleService.Add(houseOfSale);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
     }
 }
